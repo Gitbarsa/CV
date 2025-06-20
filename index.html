@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: white;
+            font-size: 10pt;
+        }
+        
+        .cv-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.6in;
+            background: white;
+            min-height: 11in;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 1.5em;
+            padding-bottom: 1em;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .name {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.3em;
+            letter-spacing: -0.5px;
+        }
+        
+        .title {
+            font-size: 14pt;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 0.5em;
+        }
+        
+        .contact-info {
+            font-size: 10pt;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+        
+        .section {
+            margin-bottom: 1.5em;
+        }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.8em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #bdc3c7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .professional-summary {
+            font-size: 10.5pt;
+            line-height: 1.7;
+            text-align: justify;
+            color: #34495e;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5em;
+            margin-top: 0.5em;
+        }
+        
+        .skill-item {
+            font-size: 9.5pt;
+            padding: 0.3em 0;
+            color: #34495e;
+            border-left: 3px solid #3498db;
+            padding-left: 0.8em;
+        }
+        
+        .experience-item {
+            margin-bottom: 1.3em;
+            page-break-inside: avoid;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5em;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .company {
+            font-size: 10pt;
+            color: #3498db;
+            font-weight: 500;
+        }
+        
+        .job-period {
+            font-size: 9pt;
+            color: #7f8c8d;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+        
+        .job-location {
+            font-size: 9pt;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .company-description {
+            font-size: 9pt;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 0.5em;
+        }
+        
+        .job-responsibilities {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .job-responsibilities li {
+            font-size: 9.5pt;
+            margin-bottom: 0.3em;
+            padding-left: 1em;
+            position: relative;
+            color: #34495e;
+            line-height: 1.5;
+        }
+        
+        .job-responsibilities li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .critical-impact {
+            margin-top: 0.8em;
+            padding: 0.6em;
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .critical-impact-title {
+            font-size: 9pt;
+            font-weight: 600;
+            color: #27ae60;
+            margin-bottom: 0.3em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .critical-impact-text {
+            font-size: 9pt;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+        
+        .education-item {
+            margin-bottom: 0.8em;
+        }
+        
+        .degree {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .institution {
+            font-size: 9pt;
+            color: #3498db;
+            font-weight: 500;
+        }
+        
+        .year {
+            font-size: 9pt;
+            color: #7f8c8d;
+        }
+        
+        .certifications {
+            font-size: 9pt;
+            color: #34495e;
+            margin-top: 0.5em;
+        }
+        
+        .technical-skills {
+            font-size: 9.5pt;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        .achievements {
+            margin-top: 0.5em;
+        }
+        
+        .achievement-item {
+            margin-bottom: 1em;
+            padding: 0.8em;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .achievement-title {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.4em;
+        }
+        
+        .achievement-description {
+            font-size: 9.5pt;
+            color: #34495e;
+            line-height: 1.5;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .cv-container {
+                max-width: none;
+                margin: 0;
+                padding: 0.5in;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .experience-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <h1 class="name">SEAN KAVAN</h1>
+            <div class="title">Lead Mechanical Designer | Product Development</div>
+            <div class="contact-info">Sydney, NSW | 📞 0415 994 322 | ✉️ sh.kavan@gmail.com</div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="professional-summary">
+                Practical, creative mechanical design engineer with 12+ years experience bringing complex products from initial sketch through to full-scale production for diverse sectors. Led mechanical design and modular integration on a $50M rail contract, consistently balancing technical detail, user needs, and real-world constraints. Recognized for rapid concept-to-manufacturing execution, high-impact team leadership, and deep experience in hands-on CAD, FEA, rapid prototyping, and cross-functional project delivery. I thrive on making ideas work for the end user and collaborating with stakeholders to deliver results that last. Delivered multiple projects for both in-house and external clients, achieving accelerated delivery, major cost reductions, and consistent client satisfaction.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Key Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Advanced 3D modeling & technical drafting (SolidWorks, Inventor, AutoCAD)</div>
+                <div class="skill-item">Full lifecycle NPD: concept, prototyping, validation, and production</div>
+                <div class="skill-item">GD&T, DFM/A, FEA, BOM management, and detailed engineering analysis</div>
+                <div class="skill-item">Manufacturing methods: injection molding, die casting, extrusion, CNC, sheet metal, springs, gears, GRP, 3D printing</div>
+                <div class="skill-item">Project management: lean/agile, milestone tracking, risk management</div>
+                <div class="skill-item">Client-facing consulting, stakeholder management, vendor/supplier engagement</div>
+                <div class="skill-item">Cross-team leadership, training, and mentoring</div>
+                <div class="skill-item">Hands-on troubleshooting, root cause analysis, and process improvement</div>
+                <div class="skill-item">Compliance with ISO 9001/14001 and documentation to regulated standards</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Notable Achievements</h2>
+            <div class="achievements">
+                <div class="achievement-item">
+                    <div class="achievement-title">$50M Rail Contract Leadership</div>
+                    <div class="achievement-description">Led mechanical design integration and modular delivery for Perth METRONET contract, delivering DMU toilet/car modules 32 days ahead of schedule while improving system uptime and reducing transport risk.</div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-title">98% On-Time Project Delivery</div>
+                    <div class="achievement-description">Consistently delivered NPD projects on schedule while cutting production failures by 20% and boosting delivery speed by 35% through agile and simulation-driven design methodologies.</div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-title">30% Cost Reduction Innovation</div>
+                    <div class="achievement-description">Achieved zero-defect final products and reduced production costs by 30% through innovative injection mould design and rigorous analysis and testing processes.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Freelance Mechanical Design & Process Improvement</div>
+                        <div class="job-location">Sydney, NSW</div>
+                    </div>
+                    <div class="job-period">08/2024 – 05/2025</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Designed and validated a SaaS MVP for non-technical users (user flow, stack, usability).</li>
+                    <li>Led trade feasibility analysis, supplier research, and comparative procurement for construction materials and specialty products.</li>
+                    <li>Applied project budgeting, milestone planning, and performance tracking.</li>
+                    <li>Streamlined handover processes and training systems using advanced process mapping.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Lead Design Engineer</div>
+                        <div class="company">RPC Technologies</div>
+                        <div class="job-location">Newcastle, NSW</div>
+                    </div>
+                    <div class="job-period">08/2023 – 08/2024</div>
+                </div>
+                <div class="company-description">Leading manufacturer of GRP systems for rail, defence, and infrastructure.</div>
+                <ul class="job-responsibilities">
+                    <li>Delivered end-to-end production drawings, 3D models, and detailed fabrication packages for modular assemblies used in major rail and infrastructure projects (up to $50M).</li>
+                    <li>Led mechanical design integration and modular delivery for $50M Perth METRONET contract (DMU toilet/car modules).</li>
+                    <li>Coordinated design, procurement, and production teams to meet accelerated deadlines.</li>
+                    <li>Developed flat-pack assembly strategies for logistics efficiency and reduced transport risk.</li>
+                    <li>Produced commissioning and maintenance docs to ensure spec/safety compliance.</li>
+                    <li>Conducted DFMEA and design validation for system reliability.</li>
+                </ul>
+                <div class="critical-impact">
+                    <div class="critical-impact-title">Critical Impact:</div>
+                    <div class="critical-impact-text">Delivered METRONET modules 32 days early; improved system uptime and reduced transport risk via design-for-reliability methods.</div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Lead Design Engineer</div>
+                        <div class="company">Microsystem Controls</div>
+                        <div class="job-location">Sydney, NSW</div>
+                    </div>
+                    <div class="job-period">04/2019 – 07/2023</div>
+                </div>
+                <div class="company-description">MSC is a leading supplier of coin and note validation systems to various industries</div>
+                <ul class="job-responsibilities">
+                    <li>Led NPD (new product development) projects from initial concept through to implementation, delivering on time, within budget, and to defined scope.</li>
+                    <li>Managed regular client meetings to capture requirements and translate feedback into technical solutions.</li>
+                    <li>Led and mentored teams of engineers, driving high performance, quality, and a collaborative project culture.</li>
+                    <li>Conducted advanced engineering analysis (DFM, FEA, tolerance studies) across multiple high-value projects.</li>
+                    <li>Produced technical documentation, feasibility studies, and clear monthly progress reports for clients and stakeholders.</li>
+                    <li>Developed and documented comprehensive test plans to meet internal and industry standards.</li>
+                    <li>Worked directly with manufacturing teams to optimize factory programs and ensure designs were production-ready.</li>
+                    <li>Provided technical guidance and mentoring to design teams throughout the project lifecycle.</li>
+                </ul>
+                <div class="critical-impact">
+                    <div class="critical-impact-title">Critical Impact:</div>
+                    <div class="critical-impact-text">Consistently delivered 98% on-time NPD projects, cutting production failures by 20% and boosting delivery speed by 35% through agile and simulation-driven design.</div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Design Engineer</div>
+                        <div class="company">Enviro Building Services</div>
+                        <div class="job-location">Helensburgh, NSW</div>
+                    </div>
+                    <div class="job-period">05/2016 - 03/2019</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Conceptualized and designed advanced enclosures for electrical products.</li>
+                    <li>Managed prototype development, CFD modeling, and validation testing.</li>
+                    <li>Led design and optimization of complex injection molds, reducing costs by 30%.</li>
+                </ul>
+                <div class="critical-impact">
+                    <div class="critical-impact-title">Critical Impact:</div>
+                    <div class="critical-impact-text">Delivered zero-defect final products by driving rigorous analysis and testing, and reduced production costs by 30% through innovative injection mould design.</div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Product Engineer/Tooling Design Engineer</div>
+                        <div class="company">Marzban Sanat Co.</div>
+                        <div class="job-location">Iran</div>
+                    </div>
+                    <div class="job-period">Mar 2011 – Jul 2015</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Designed injection molds for manufacturing, generated drawings & G-codes.</li>
+                    <li>Estimated detailed toolset costs and optimized for efficiency.</li>
+                    <li>Created innovative conceptual designs for a fast-paced environment.</li>
+                    <li>Produced BOMs and instruction manuals; liaised with manufacturing to improve new products.</li>
+                    <li>Supervised engineering teams and guided multiple departments to achieve strong outcomes.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Product Design Engineer</div>
+                        <div class="company">Negahban Fire & Safety Co.</div>
+                        <div class="job-location">Tehran, Iran</div>
+                    </div>
+                    <div class="job-period">Mar 2009 – Feb 2011</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Designed a range of firefighting products; prepared manufacturing drawings using SolidWorks.</li>
+                    <li>Optimized processes, reduced machining steps, generated BOMs, and provided on-site customer support.</li>
+                    <li>Collaborated with retail and sales for customer pricing and project delivery.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education & Credentials</h2>
+            <div class="education-item">
+                <div class="degree">MEng Mechanical Engineering</div>
+                <div class="institution">University of Wollongong <span class="year">(2018)</span></div>
+            </div>
+            <div class="education-item">
+                <div class="degree">BEng Manufacturing Engineering</div>
+                <div class="institution">University of Applied Science, Tehran <span class="year">(2012)</span></div>
+            </div>
+            <div class="certifications">
+                SolidWorks & Inventor Professional Cert | Lean Manufacturing Cert (2021)<br>
+                Member, Engineers Australia | Chartered status in progress<br>
+                White Card | Valid Driver's License
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Technical Skills & Tools</h2>
+            <div class="technical-skills">
+                SolidWorks, Inventor, AutoCAD, GD&T, DFM/A, FEA, BOM management, CFD, injection molding, sheet metal, CNC, rapid prototyping, ERP/MRP systems.
+            </div>
+        </section>
+    </div>
+</body>
+</html>
